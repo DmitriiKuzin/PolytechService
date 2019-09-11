@@ -1,0 +1,38 @@
+<ng-container *ngIf="apiService.requestsLoaded|async"> 
+        <table *ngIf="apiService.requests.length>0"  class="table table-dark table-hover shadow rounded-lg">
+            <thead>
+              
+              <th>№</th>
+              <th>Приоритет</th>
+              <th>Создана</th>
+              <th>Создатель</th>
+              <th>Название</th>
+              <th>Исполнитель</th>
+              <th>Категория</th>
+              <th>Статус</th>
+              <!-- <th>Жизка</th> -->
+            </thead>
+            <tbody>
+              <tr *ngFor="let request of apiService.requests">
+                  
+                  <td (click)="onRow(request.id)">{{request.id}}</td>
+                  <td (click)="onRow(request.id)" class="{{priority(request.priorityId)}}">{{request.priorityId}}</td>
+                  <td (click)="onRow(request.id)" >{{gDate(request.lifecycle.opened)}}</td>
+                  <td (click)="onRow(request.id)">{{request.creator.userName}}</td>
+                  <td (click)="onRow(request.id)">{{request.title}}</td>
+                  <td>{{executorName(request.executor)}}</td>
+                  <td>{{request.category.name}}</td>
+                  <td>{{request.status.name}}</td>
+                  <!-- <td>{{request.lifecycle.opened}}</td> -->
+                  <td><button class="btn btn-danger" (click)="onDelete(request.lifecycleId)">Удалить</button></td>
+              </tr>
+            </tbody>
+              <!-- <tr *ngIf="i == clickedid">
+                <td colspan="2" align="center">3</td>
+              </tr> -->
+            
+          </table>
+          <div *ngIf="apiService.requests.length==0" class="container-fluid" style="text-align: center">
+            <h5 class="my-auto" style="color: aliceblue">У Вас пока нет заявок</h5>
+          </div>
+</ng-container>

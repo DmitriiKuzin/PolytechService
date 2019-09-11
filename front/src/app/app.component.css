@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Gilroy Ultra Light';
+    src: url('./../assets/Fonts/Gilroy-UltraLight.woff');
+    src: url('./../assets/Fonts/Gilroy-UltraLight.eot') format('embedded-opentype'),
+    url('./../assets/Fonts/Gilroy-UltraLight.eot') format('woff'),
+    url('./../assets/Fonts/Gilroy-UltraLight.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+        font-family: 'Gilroy Medium';
+        src: url('./../assets/Fonts/Gilroy-Medium.eot');
+        src: url('./../assets/Fonts/Gilroy-Medium.eot?#iefix') format('embedded-opentype'),
+        url('./../assets/Fonts/Gilroy-Medium.woff') format('woff'),
+        url('./../assets/Fonts/Gilroy-Medium.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+            font-family: 'Gilroy Light';
+            src: url('./../assets/Fonts/Gilroy-Light.eot');
+            src: url('./../assets/Fonts/Gilroy-Light.eot?#iefix') format('embedded-opentype'),
+            url('./../assets/Fonts/Gilroy-Light.woff') format('woff'),
+            url('./../assets/Fonts/Gilroy-Light.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+    }
+    .h1, h1{
+        font-family: 'Gilroy Light';
+    }
+    .body{
+        font-family: 'Gilroy Light'
+    }

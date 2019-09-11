@@ -1,0 +1,78 @@
+<div class="wrapper">
+
+
+  <form #reqform="ngForm" autocomplete="off" (submit)="onSubmit(reqform)" style="width: 1000px">
+
+    <div *ngIf="step==1" class="wrapped-div" style="max-width:1000px; height: 600px;">
+      <div class="row d-flex justify-content-center text-white">
+        <h1>Выбирете категорию:</h1>
+      </div>
+
+      <div class="row m-5  justify-content-center text-white my-auto" style="height:100%">
+        
+        <div class="col-4 justify-content-center my-auto">
+          <a class="btn btn-block border border-light  wow" id="1" (click)="onClick($event)">
+            <i class="fas fa-toilet fa-8x m-3" id="1"></i></a>
+          <h4 style="text-align:center; margin:10px">Сантехника</h4>
+        </div>
+
+        <div class="col-4 my-auto">
+          <a class="btn btn-block border border-light  wow" id="2" (click)="onClick($event)">
+            <i class="fas fa-bolt fa-8x m-3" id="2"></i></a>
+          <h4 style="text-align:center; margin:10px">Электрика</h4>
+        </div>
+        <div class="col-4 my-auto">
+          <a class="btn btn-block border border-light  wow" id="3" (click)="onClick($event)">
+            <i class="fas fa-hammer fa-8x m-3" id="3"></i></a>
+          <h4 style="text-align:center; margin:10px">Мебель</h4>
+        </div>
+
+      </div>
+    </div>
+
+    <div *ngIf="step==2" class="wrapped-div" style="max-width:1000px;">
+
+      <div class="block">
+        <i class="fas fa-arrow-left fa-2x arrow m-2" (click)="goBack()"></i>
+      </div>
+      <div class="formdata m-auto p-5" style="max-width:500px">
+
+
+        <div class="form-group">
+          <label>Что случилось?</label>
+          <div class="input-group">
+
+            <input name="Title" #Title="ngModel" [(ngModel)]="apiService.reqFormData.Title" class="form-control"
+              required minlength="3">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Опишите подробнее</label>
+          <textarea name="Description" #Description="ngModel" [(ngModel)]="apiService.reqFormData.description"
+            class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <div class="form-group">
+         <input multiple accept='image/*' type="file" #file name="file" (change)="setFiles(file.files)"
+        class="custom-file-input" id="customFileLang" lang="ru" aria-describedby="inputGroupFileAddon01" hidden>
+
+
+
+        <div class="container justify-content-center my-auto">
+          <label>Добавьте фотографии</label>
+            <a class="btn btn-block border border-light  wow" id="1" (click)="file.click()">
+              <i class="fas fa-camera-retro fa-8x m-3" id="1"></i></a>            
+          </div>
+        </div>
+       
+        <div class="form-group p-4">
+          <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="reqform.invalid">
+            <i class="fas fa-database"></i> Добавить</button>
+        </div>
+
+      </div>
+    </div>
+
+
+
+</form>
+<button class="btn btn-danger" (click)="GO()">GO()</button>

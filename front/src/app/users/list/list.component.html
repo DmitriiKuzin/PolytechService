@@ -1,0 +1,24 @@
+
+          
+         <table  class="table table-dark table-hover shadow rounded-lg">
+          <thead>
+            <th>#</th>
+            <th>Логин</th>
+            <th>ФИО</th>
+            <th>Роль</th>
+            <th *ngIf="!mobile">e-mail</th>
+          </thead>
+          <tbody>                     
+            <tr *ngFor="let user of apiService.users">
+                <td>{{apiService.users.indexOf(user)}}</td>
+                <td (click)="onClick(user)"><p >{{user.userName}}</p></td>
+                <td >{{user.fullName}}</td>
+                <td >{{user.role.rusName}}</td>
+                <td >{{user.email}}</td>
+                <td ><button *ngIf="!mobile" class="btn btn-danger" (click)="onDelete(user.id)">Удалить</button></td>                
+            </tr>            
+          </tbody>          
+        </table> 
+ 
+
+

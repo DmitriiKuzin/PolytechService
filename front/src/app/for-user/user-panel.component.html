@@ -1,0 +1,33 @@
+
+
+<div class="container-fluid  bg-dark" style="width:100%">
+    <div class="row p-2">
+
+   
+      <div class="block">
+        <img src="../../../assets/images/LogoPolytech.png" alt="" class="img-fluid" style="height: 50px">
+      </div>
+    
+        <div class="col ">   
+        <button class="btn btn-outline-success m-1" type="button" routerLink='requests'>Мои заявки</button>
+        </div>
+    
+<div class="col " style="text-align: right">    
+        <a class="btn btn-primary m-1" routerLink='newrequest'>Добавить Заявку</a>
+      <button class="btn btn-danger m-1" (click)="apiService.onLogout()" >Выйти</button>
+    </div>
+ 
+
+    </div>
+  </div>
+<div class="container">
+
+<div class="row align-items-center p-20">
+  <div class="col-12 mt-5">
+      
+    <router-outlet></router-outlet>
+  </div>
+  
+</div>
+
+</div>

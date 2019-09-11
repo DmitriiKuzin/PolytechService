@@ -1,0 +1,78 @@
+<div *ngIf="!apiService.mobile" class="container-fluid  bg-dark" style="width:100%; position: sticky">
+  <div class="row p-2">
+
+
+    <div class="block">
+      <img src="../../../assets/images/LogoPolytech.png" alt="" class="img-fluid" style="height: 50px">
+    </div>
+
+    <div class="col ">
+
+      <button class="btn btn-outline-success m-1" type="button" routerLink='list'>Пользователи</button>
+      <button class="btn btn-outline-success m-1" type="button" routerLink='requests'>Заявки</button>
+    </div>
+    <div class="col">
+      <div class="row" style="height: 100%; width: 480px;">
+        <div class="col-1 my-auto">
+          <i class="fas fa-search my-auto" aria-hidden="true" style="color: white"></i>
+        </div>
+        <div class="col my-auto" style="padding-left: 0px">
+          <input name="Title" #Title="ngModel" [(ngModel)]="apiService.search" (keyup)="apiService.searchRequests()" class="form-control" required
+            minlength="3">
+        </div>
+      </div>
+    </div>
+
+    <div class="col " style="text-align: right">
+      <a class="btn btn-primary m-1" routerLink='newuser'>Добавить пользователя</a>
+      <a class="btn btn-primary m-1" routerLink='newrequest'>Добавить Заявку</a>
+      <button class="btn btn-danger m-1" (click)="apiService.onLogout()">Выйти</button>     
+    </div>
+
+
+  </div>
+</div>
+
+<nav *ngIf="apiService.mobile" class="navbar fixed-top navbar-dark bg-dark">
+    <div class="block">
+        <img src="../../../assets/images/LogoPolytech.png" alt="" class="img-fluid" style="height: 50px">
+      </div>
+  <a class="btn btn-success" (click)="show = show ? false : true">Меню</a>
+<div *ngIf="show" class="col " style="text-align: right">
+    <button class="mob-nav btn btn-outline-success m-1" (click)="show=false"  routerLink='list'>Пользователи</button>
+    <button class="mob-nav btn btn-outline-success m-1" (click)="show=false" routerLink='requests' >Заявки</button>
+    <a class="mob-nav btn btn-primary m-1" (click)="show=false" routerLink='newuser'>Добавить пользователя</a>
+    <a class="mob-nav btn btn-primary m-1" (click)="show=false" routerLink='newrequest'>Добавить Заявку</a>
+    <button class="btn btn-danger m-1" (click)="apiService.onLogout()">Выйти</button>
+  
+    
+  </div>
+  <div class="col-12">
+      <div class="row" style="height: 100%; width: 400px;">
+        <div class="col-1 my-auto p-1">
+          <i class="fas fa-search my-auto" aria-hidden="true" style="color: white"></i>
+        </div>
+        <div class="col my-auto" style="padding-left: 0px">
+          <input name="Title" #Title="ngModel" [(ngModel)]="apiService.search" (keyup)="apiService.searchRequests()" class="form-control" required
+            minlength="3">
+        </div>
+      </div>
+    </div>
+</nav>
+
+
+
+<div class="container" [class.marg]="apiService.mobile">
+
+  <div class="row align-items-center" >
+    <div class="col-12 mt-5" >
+
+      <router-outlet></router-outlet>
+
+
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,49 @@
+
+<ng-container *ngIf="apiService.requestsLoaded|async">
+
+
+<div *ngIf="apiService.requests.length>0" class="block bg-dark m-2 p-1 rounded-lg shadow-lg" style="width: 280px; color: white">
+<div class="custom-control custom-switch">
+
+  <input type="checkbox" [ngModel]="undistributed" (click)="undistriber()" class="custom-control-input" id="customSwitch1" [disabled]="!this.apiService.hasUndistributed"> 
+    <label class="custom-control-label" for="customSwitch1">Нераспределенные заявки</label>
+  
+</div>
+<div class="custom-control custom-switch">
+<input type="checkbox" [ngModel]="opened" (click)="opener()" class="custom-control-input" id="customSwitch2" > 
+    <label class="custom-control-label" for="customSwitch2">Открытые заявки</label>
+</div>
+</div>
+<table *ngIf="apiService.requests.length>0" class="table table-dark table-hover shadow rounded-lg">
+  <thead [class.smallfont]="mobile">
+ 
+    <th *ngIf="!mobile"  >№</th>
+    <th></th>
+    <th >Создана</th>
+    <th >Название</th>
+    <th>Создатель</th>    
+    <th th *ngIf="!mobile">Исполнитель</th>
+    <th *ngIf="!mobile">Категория</th>
+    <th  *ngIf="!mobile">Статус</th> 
+  </thead> 
+  <tbody>
+    <tr *ngFor="let request of apiService.requests">
+
+      <td *ngIf="!mobile" (click)="onRow(request.id)">{{request.id}}</td> 
+      <td (click)="onRow(request.id)" class="{{priority(request.priorityId)}}"> </td>
+      <td (click)="onRow(request.id)"  [class.smallfont]="mobile">{{gDate(request.lifecycle.opened)}}</td>
+      <td (click)="onRow(request.id)" [class.ellipsis]="mobile">{{request.title}}</td>
+      <td (click)="onRow(request.id)">{{request.creator.userName}}</td>      
+      <td  *ngIf="!mobile">{{executorName(request.executor)}}</td>
+      <td  *ngIf="!mobile">{{request.category.name}}</td>
+      <td *ngIf="!mobile">  {{request.status.name}}</td>
+       <td *ngIf="!mobile"><button class="btn btn-danger" (click)="onDelete(request.lifecycleId)">Удалить</button></td>
+    </tr>
+  </tbody>
+
+
+</table>
+<div *ngIf="apiService.requests.length==0" class="container-fluid" style="text-align: center">
+  <h5 class="my-auto" style="color: aliceblue">Заявки отсутствуют</h5>
+</div>
+</ng-container>

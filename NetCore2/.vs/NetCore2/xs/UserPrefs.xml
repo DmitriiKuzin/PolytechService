@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{8F1F8C42-C26D-40FC-91F2-57E07C6E5F8B}|Default">
+  <MonoDevelop.Ide.ItemProperties.NetCore2 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="NetCore2/Models/AuthDbContext.cs">
+    <Files>
+      <File FileName="NetCore2/Models/AuthDbContext.cs" Line="112" Column="1" />
+      <File FileName="NetCore2/Controllers/AuthController.cs" Line="150" Column="83" />
+      <File FileName="NetCore2/Controllers/UserController.cs" Line="204" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="NetCore2" expanded="True">
+            <Node name="NetCore2" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="AuthDbContext.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../../../NetCore2/Controllers/UserController.cs" line="126" offsetX="-1" offsetY="-1" expression="user" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

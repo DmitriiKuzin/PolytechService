@@ -1,0 +1,103 @@
+<div class="wrapper" style="width: 100%">
+
+  <div class="wrapped-div" style="max-width:1000px; width: 100%;">
+    <form #reqform="ngForm" autocomplete="off" (submit)="onSubmit(reqform)">
+
+      <div class="row d-flex justify-content-center text-white">
+        <h1>Новая заявка:</h1>
+      </div>
+      <div class="form-group">
+
+        <label>Название</label>
+        <div class="input-group">
+          <input name="title" #title="ngModel" [(ngModel)]="apiService.reqFormData.title" class="form-control" required
+            minlength="3">
+        </div>
+        <div class="form-group">
+          <label>Описание</label>
+          <textarea name="Description" #Description="ngModel" [(ngModel)]="apiService.reqFormData.description"
+            class="form-control" rows="5" id="comment" required></textarea>
+        </div>
+        <div class="row">
+        <div class="col-md-6 col-sm-12">
+        <label for="exampleFormControlSelect1">категория</label>
+        <select name="category" class="form-control" id="exampleFormControlSelect1" #title
+          [(ngModel)]="apiService.reqFormData.categoryId" required>
+          <option *ngFor="let category of apiService.categories" [value]=category.id>{{category.name}}</option>
+        </select>
+      </div>
+        <div class="col-md-6 col-sm-12">
+          <label for="exampleFormControlSelect2">исполнитель</label>
+          <select name="Executor" class="form-control" id="exampleFormControlSelect2" #executor
+            [(ngModel)]="apiService.reqFormData.executor.userName">
+            <option value="">Не распределена</option>
+            <option *ngFor="let executor of apiService.executors" [value]=executor.userName>{{executor.fullName}}
+            </option>
+          </select>
+        </div>
+
+
+
+</div>
+<div class="row">
+        <div class="col-md-6 col-sm-12">
+          <label for="exampleFormControlSelect3">Приоритет</label>
+          <select name="priority" class="form-control" id="exampleFormControlSelect3" #priority
+            [(ngModel)]="apiService.reqFormData.priorityId" required>
+            <option *ngFor="let priority of apiService.priorities" [value]=priority.id>{{priority.name}}</option>
+          </select>
+        </div>
+
+
+        <div class="col-md-6 col-sm-12">
+          <label for="exampleFormControlSelect4">Общежитие</label>
+          <select name="dorm" class="form-control" id="exampleFormControlSelect4" value="{{dorm}}" #dorm
+            [(ngModel)]="apiService.reqFormData.dormId" required>
+            <option *ngFor="let dorm of apiService.dorms" [value]=dorm.id>{{dorm.address}}</option>
+          </select>
+        </div>
+</div>
+
+<div class="row">
+
+        <div class="col-md-6 col-sm-12">
+        <label for="room">Квартира</label>        
+          <input id="room" name="room" #Title="ngModel" [(ngModel)]="apiService.reqFormData.room" class="form-control" required
+            minlength="3">
+        </div>
+      
+      <div class="col-md-6 col-sm-12 ">
+       
+<label for="inputGroupFile01">Изображения</label>
+          <div class="custom-file">
+            <input multiple accept='image/*' type="file" #file name="file" (change)="setFiles(file.files)"
+            class="custom-file-input" id="customFileLang" lang="ru" aria-describedby="inputGroupFileAddon01">
+            <label class="custom-file-label" for="inputGroupFile01">Выбирете файлы для загрузки</label>
+          </div>
+</div>
+     
+        <div *ngFor="let image of apiService.images" class="col m-3">  
+          <div class="block">                       
+              <button class="btn btn-danger" (click)="onImageDelete(image)" style="font-size: 0.5em; display: flex;">X</button>
+          <img  [src]=image  class="rounded " style="height: 150px; display: block;">
+                    <div class="progress m-2" style="height: 10px; width:200px; display: inline-flex;">
+            <div  class="progress-bar" role="progressbar" [style.width.%]="apiService.progress" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            
+          </div>
+          <i style="color: green" class="fas fa-check-circle"></i>
+      </div>
+        </div> 
+        
+     
+
+</div>
+</div>
+
+      <div class="form-group ">
+        <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="reqform.invalid">
+          <i class="fas fa-database"></i> Добавить</button>
+      </div>
+    </form>
+  </div>
+</div>
+<button class="btn btn-danger" (click)="onGo()" >GO</button>
